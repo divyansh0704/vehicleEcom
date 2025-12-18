@@ -1,5 +1,6 @@
 const Vehicle = require("../models/Vehicle");
 
+
 exports.createVehicle = async (req, res) => {
     try {
         const vehicle = new Vehicle(req.body);

@@ -1,9 +1,9 @@
 const express = require("express");
 const {createVehicle,getVehicles,getVehicleById,updateVehicle,deleteVehicle} = require("../controllers/vehicleController");
-
+const authMiddleware = require("../middleware/authMiddleware")
 const router = express.Router();
 
-router.post("/",createVehicle);
+router.post("/",authMiddleware,createVehicle);
 router.get("/",getVehicles);
 router.get("/:id",getVehicleById);
 router.put("/:id",updateVehicle);
