@@ -1,25 +1,33 @@
 import React from 'react'
 import "./navbar.css"
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const Navbar = () => {
+  const {isLoggedIn,logout,role}=useContext(AuthContext)
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth"
     });
   };
+  
   return (
     <div className='navContainer'>
       <h1 className="navleft">Car<span>Sales</span></h1>
       <div className="navright">
 
         <Link className='nav-link' to="/"><h4>Home</h4></Link>
-        <h4 onClick={scrollToBottom} style={{ cursor: "pointer" }} >Contacts</h4>
+         {/*<h4 onClick={scrollToBottom} style={{ cursor: "pointer" }} >Contacts</h4>
         <h4 onClick={scrollToBottom} style={{ cursor: "pointer" }} >About</h4>
-        <Link className='nav-link'  to="/"><h4>Profile</h4></Link>
+        <Link className='nav-link'  to="/register"><h4>Sign Up</h4></Link> */}
+        {role === "admin" && <Link className='nav-link' to="/admin"><h4>Admin</h4></Link>}
 
-
+        {isLoggedIn?
+        (<><Link className='nav-link' to="/orders"><h4>My orders</h4></Link><button onClick={logout}>Log Out</button></>):
+        (<><Link  className='nav-link' to="register"><h4>register</h4></Link>
+      <Link className='nav-link' to="login"><h4>login</h4></Link></>)}
 
 
       </div>

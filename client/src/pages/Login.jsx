@@ -11,7 +11,8 @@
 import { useState, useContext } from "react";
 import api from "../api/api";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import "./login.css"
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await api.post("/users/login", form);
-      login(res.data.token);
+      login(res.data.token,res.data.user.role);
       navigate("/");
     } catch (err) {
       alert("Invalid credentials");
@@ -36,23 +37,26 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
+    <div className="out-login">
+      <div className="login-container">
+        <h2>Sign In</h2>
 
-      <input
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
 
-      <input
-        name="password"
-        type="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
 
-      <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin}>Login</button>
+        <p>Don't have an account?<Link to="/register">register here</Link> </p>
+      </div>
     </div>
   );
 };

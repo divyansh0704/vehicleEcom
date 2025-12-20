@@ -32,6 +32,7 @@
     display: flex;
     gap: 30px;
     justify-content: space-between;
+    align-items: center;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 300;
     font-size: medium;
@@ -43,4 +44,21 @@
 .nav-link {
   text-decoration: none;   
   color: inherit;          
+}
+.navright button{
+    height: 26px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border-radius: 2px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: medium;
 }
