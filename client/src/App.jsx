@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import MyOrders from './pages/MyOrders'
 import ProtectedRoutes from './context/ProtectedRoutes'
 import Admin from './pages/Admin'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         {/* <Route path='/orders' element={<ProtectedRoutes> <MyOrders/> </ProtectedRoutes>  } /> */}
         <Route element={<ProtectedRoutes />}>
           <Route path="/orders" element={<MyOrders />} />
+          <Route path='/cart' element={<Cart/> } />
         </Route>
 
       </Routes>

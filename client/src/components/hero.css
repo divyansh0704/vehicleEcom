@@ -7,6 +7,7 @@
     height: 76vh;
     background-size: cover;
     background-position: center;
+    margin-top: 88px;
 
 }
 
@@ -45,4 +46,34 @@
     width: 150px;
     height: 30px;
     cursor:pointer;
+}
+
+@media (max-width: 600px) {
+
+  .hero-container {
+    height: 65vh;
+    margin-top: 70px;
+  }
+
+  .hero-content {
+    width: 90%;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .hero-content h2 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .hero-content button {
+    width: 160px;
+    height: 38px;
+    font-size: 14px;
+  }
 }

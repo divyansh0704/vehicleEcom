@@ -3,17 +3,17 @@ import "./footer.css"
 
 const Footer = () => {
     return (
-        <footer class="footer">
-            <div class="footer-container">
+        <footer className="footer">
+            <div className="footer-container">
 
               
-                <div class="footer-col">
+                <div className="footer-col">
                     <h3>CarHub</h3>
                     <p>Your trusted platform to buy new and used cars at the best prices.</p>
                 </div>
 
                 
-                <div class="footer-col">
+                <div className="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
 
                 
-                <div class="footer-col">
+                <div className="footer-col">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#">Buy Car</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
 
                
-                <div class="footer-col">
+                <div className="footer-col">
                     <h4>Contact</h4>
                     <p>Email: support@carhub.com</p>
                     <p>Phone: +91 98765 43210</p>
@@ -43,7 +43,7 @@ const Footer = () => {
 
             </div>
 
-            <div class="footer-bottom">
+            <div className="footer-bottom">
                 © 2025 CarHub. All rights reserved.
             </div>
         </footer>

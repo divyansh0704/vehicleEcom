@@ -8,41 +8,24 @@ import Footer from '../components/Footer'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import { CartContext } from '../context/CartContext'
 
 const Vehicles = () => {
     const [vehicles, setVehicles] = useState([]);
     const [cart, setCart] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
     const { token } = useContext(AuthContext)
-    const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext);
+    const handleAddToCart = (vehicle) => {
+        addToCart(vehicle);
+        setShowAlert(true);
 
-    const addToCart = (vehicle) => {
-        setCart([...cart, { vehicle, quantity: 1 }]);
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 3000);
+
     }
-    const placeOrder = async () => {
-        if (!token) {
-            navigate("/login");
-            return
-
-
-        }
-        const orderData = {
-            items: cart.map((c) => ({
-                vehicle: c.vehicle._id,
-                quantity: c.quantity
-
-            })),
-            totalAmount: cart.reduce((sum, c) => sum + c.vehicle.price * c.quantity, 0)
-
-        }
-
-        await api.post("/orders", orderData, {
-            headers: { Authorization: `Bearer${token}` }
-        })
-
-        alert("Order placed successfully");
-        setCart([]);
-        navigate("/orders");
-    }
+    
 
     useEffect(() => {
         api.get("/vehicles")
@@ -52,6 +35,24 @@ const Vehicles = () => {
     return (
         <>
             <Hero />
+            {showAlert && (
+                <div
+                    style={{
+                        background: "#4caf50",
+                        color: "white",
+                        padding: "10px",
+                        marginBottom: "10px",
+                        position:"fixed",
+                        top:"5px",
+                        right:"40%",
+                        widht:"20%",
+                        borderRadius:"10px",
+                        border:"1px solid white"
+                    }}
+                >
+                    ✅ Item added to cart
+                </div>
+            )}
             <div className='vehicleContainer'>
                 <div className="section-title">
                     <h2>Featured Listings</h2>
@@ -60,7 +61,12 @@ const Vehicles = () => {
                     {vehicles.map(v => (
                         <div className='each-card' key={v._id}>
                             <div className="car-img">
-                                <img src={image1} alt={v.name} />
+                                {/* <img src={image1} alt={v.name} /> */}
+                                <img
+                                    src={`http://localhost:5000/uploads/${v.image}`}
+                                    alt={v.name}
+                                    width="200"
+                                />
                             </div>
                             <div className="info">
                                 <div className="info-left">
@@ -69,12 +75,12 @@ const Vehicles = () => {
                                     <h5>Price: ₹{v.price}</h5>
                                 </div>
                                 <div className="info-right">
-                                    <button onClick={() => addToCart(v)}>Add to Cart</button>
+                                    <button onClick={() => handleAddToCart(v)}>Add to Cart</button>
                                 </div>
                             </div>
                         </div>
                     ))}
-                    {cart.length > 0 && (
+                    {/* {cart.length > 0 && (
                         <div className='cart-container'>
                             <h3>cart</h3>
                             {cart.map((c, i) => (
@@ -89,7 +95,7 @@ const Vehicles = () => {
                             ))}
                             <button onClick={placeOrder} >Place Order</button>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
             <Footer />
