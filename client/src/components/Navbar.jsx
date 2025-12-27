@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import "./navbar.css"
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
@@ -9,6 +9,7 @@ import { CartContext } from '../context/CartContext'
 const Navbar = () => {
   const {cart} = useContext(CartContext)
   const {isLoggedIn,logout,role}=useContext(AuthContext)
+  const [open,setOpen]=useState(false)
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
@@ -19,8 +20,11 @@ const Navbar = () => {
   return (
     <div className='navContainer'>
       <h1 className="navleft">Car<span>Sales</span></h1>
-      <div className="navright">
-
+       <div className="hamburger" onClick={() => setOpen(!open)}>
+    ☰
+  </div>
+      <div  className={`navright ${open ? "open" : ""}`}>
+{/* className="navright" */}
         <Link className='nav-link' to="/"><h4>Home</h4></Link>
          {/*<h4 onClick={scrollToBottom} style={{ cursor: "pointer" }} >Contacts</h4>
         <h4 onClick={scrollToBottom} style={{ cursor: "pointer" }} >About</h4>

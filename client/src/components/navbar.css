@@ -45,6 +45,13 @@
     margin-right: 10px;
 
 }
+.hamburger{
+    display: none;
+     font-size: 30px;
+     color: white;
+     margin-right: 30px;
+  cursor: pointer;
+}
 
 .nav-link {
     text-decoration: none;
@@ -67,5 +74,26 @@
     align-items: center;
     font-weight: 600;
     font-size: medium;
+}
+
+@media (max-width: 768px){
+    .hamburger {
+    display: block;
+    color: white;
+
+  }
+    .navright {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  .navright .open {
+    display: flex;
+  }
 }
 

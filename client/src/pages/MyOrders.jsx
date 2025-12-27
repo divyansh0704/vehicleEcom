@@ -3,6 +3,7 @@ import "./orders.css"
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { useState } from 'react'
+import api from '../api/api'
 
 const MyOrders = () => {
     const { token } = useContext(AuthContext)
@@ -18,7 +19,8 @@ const MyOrders = () => {
                     headers: { Authorization: `Bearer ${token}` }
 
                 });
-                setOrders(res.data);
+                console.log("order response: ",res.data.orders)
+                setOrders(res.data.orders);
 
             }catch(err){
                 console.log(err);
@@ -37,11 +39,11 @@ const MyOrders = () => {
                     <p><strong>Status:</strong>{order.status}</p>
                     <p><strong>Total Amount:</strong>{order.totalAmount}</p>
                     <h4>Vehicles</h4>
-                    {order.items.map(item=>{
+                    {order.items.map(item=>(
                         <p key={item._id}>
-                            {item.vehicle.name}*{item.quantity}
+                            {item.vehicle.name} * {item.quantity}
                         </p>
-                    })}
+                    ))}
                 </div>
             ))}
         </div>
