@@ -7,7 +7,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "vehicle-ecommerce",
-    allowed_formats: ["jpg", "png", "jpeg"]
+    allowedFormats: ["jpg", "png", "jpeg"]
   }
   
 });
