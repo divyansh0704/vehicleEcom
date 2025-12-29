@@ -9,7 +9,7 @@ exports.createVehicle = async (req, res) => {
             brand: req.body.brand,
             price: req.body.price,
             type: req.body.type,
-            image: req.file ? req.file.filename : null
+            image: req.file ? req.file.path : null
         });
         await vehicle.save();
         res.status(201).json(vehicle);
