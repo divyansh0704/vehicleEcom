@@ -63,7 +63,7 @@ const Vehicles = () => {
                             <div className="car-img">
                                 {/* <img src={image1} alt={v.name} /> */}
                                 <img
-                                    src={`http://localhost:5000/uploads/${v.image}`}
+                                    src={`https://vehicleecom.onrender.com/api/uploads/${v.image}`}
                                     alt={v.name}
                                     width="200"
                                 />
