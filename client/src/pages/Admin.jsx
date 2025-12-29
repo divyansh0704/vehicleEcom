@@ -62,7 +62,7 @@ const Admin = () => {
       {vehicles.map(v => (
         <div className='admin-cards' key={v._id}>
           <img
-            src={`http://localhost:5000/uploads/${v.image}`}
+            src={v.image}
             alt={v.name}
             width="200"
           />
