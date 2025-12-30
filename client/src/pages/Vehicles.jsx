@@ -16,7 +16,12 @@ const Vehicles = () => {
     const [showAlert, setShowAlert] = useState(false);
     const { token } = useContext(AuthContext)
     const { addToCart } = useContext(CartContext);
+    const navigate = useNavigate();
     const handleAddToCart = (vehicle) => {
+        if (!token) {
+            navigate("/login");
+            return;
+        }
         addToCart(vehicle);
         setShowAlert(true);
 
@@ -25,7 +30,7 @@ const Vehicles = () => {
         }, 3000);
 
     }
-    
+
 
     useEffect(() => {
         api.get("/vehicles")
@@ -42,12 +47,12 @@ const Vehicles = () => {
                         color: "white",
                         padding: "10px",
                         marginBottom: "10px",
-                        position:"fixed",
-                        top:"5px",
-                        right:"40%",
-                        widht:"20%",
-                        borderRadius:"10px",
-                        border:"1px solid white"
+                        position: "fixed",
+                        top: "5px",
+                        right: "40%",
+                        widht: "20%",
+                        borderRadius: "10px",
+                        border: "1px solid white"
                     }}
                 >
                     ✅ Item added to cart
