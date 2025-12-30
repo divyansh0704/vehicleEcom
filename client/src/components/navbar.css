@@ -15,8 +15,14 @@
 
 
 }
+.navleft{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6px;
+}
 
-.navleft {
+.navleft h1 {
     color: white;
 
     font-size: 30px;
@@ -27,7 +33,7 @@
 
 }
 
-.navleft span {
+.navleft h1 > span {
     color: red;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -57,14 +63,18 @@
     text-decoration: none;
     color: inherit;
 }
-
-.navright button {
+#b1{
+  display: none;
+}
+#b2{
+  
+   
     height: 26px;
     border: none;
     cursor: pointer;
     color: white;
     background-color: red;
-    border-radius: 2px;
+    border-radius: 4px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-left: 4px;
     padding-right: 4px;
@@ -75,8 +85,33 @@
     font-weight: 600;
     font-size: medium;
 }
+.des-cart{
+  display: flex;
+
+}
+.mob-cart{
+  display: none;
+}
 
 @media (max-width: 768px){
+  .navleft h1{
+    margin-left: 0px;
+  }
+  #b1{
+    
+        font-family: roboto;
+        color: white;
+        background-color: red;
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        width: 64px;
+        cursor: pointer;
+        margin-right: 26px;
+  }
     .hamburger {
     display: block;
     color: white;
@@ -85,15 +120,48 @@
     .navright {
     display: none;
     flex-direction: column;
+      justify-content:normal;
     position: absolute;
-    top: 60px;
-    right: 10px;
+    top: 76px;
+    left: 10px;
     background: #222;
     padding: 15px;
     border-radius: 8px;
+    gap: 0px;
+    width: 20vw;
+    /* height: 26vh; */
   }
-  .navright .open {
+  .navright button{
+    margin: 4px;
+  }
+  .navright h4{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+  }
+  .navright Link{
+    padding: 0px;
+  }
+   .open {
     display: flex;
+  }
+  #b2{
+    display: none;
+  }
+  .mob-cart{
+    color: white;
+    display: flex;
+  }
+  .des-cart{
+  display: none;
+  }
+
+
+
+  .mob-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
 }
 
