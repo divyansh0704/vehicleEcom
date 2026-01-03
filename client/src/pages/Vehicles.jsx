@@ -9,6 +9,7 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import { CartContext } from '../context/CartContext'
+import Shimmer from '../components/Shimmer'
 
 const Vehicles = () => {
     const [vehicles, setVehicles] = useState([]);
@@ -16,6 +17,7 @@ const Vehicles = () => {
     const [showAlert, setShowAlert] = useState(false);
     const { token } = useContext(AuthContext)
     const { addToCart } = useContext(CartContext);
+    const [loading,setLoading] = useState(true);
     const navigate = useNavigate();
     const handleAddToCart = (vehicle) => {
         if (!token) {
@@ -34,7 +36,9 @@ const Vehicles = () => {
 
     useEffect(() => {
         api.get("/vehicles")
-            .then(res => setVehicles(res.data))
+            .then((res) => {setVehicles(res.data)
+                setLoading(false)
+            })
             .catch(err => console.log(err))
     }, [])
     return (
@@ -63,6 +67,7 @@ const Vehicles = () => {
                     <h2>Featured Listings</h2>
                 </div>
                 <div className="card-container">
+                    {loading && <Shimmer/>}
                     {vehicles.map(v => (
                         <div className='each-card' key={v._id}>
                             <div className="car-img">
