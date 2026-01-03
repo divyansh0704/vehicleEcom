@@ -1,0 +1,77 @@
+/* .card-container1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+} */
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+/* Shimmer Card */
+.shimmer-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Image placeholder */
+.shimmer-img {
+  height: 180px;
+  width: 96%;
+  margin-top: 5px;
+  border-radius: 6px;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e4e4e4 20%,
+    #f0f0f0 40%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Content */
+.shimmer-info {
+  padding: 16px;
+  width: 96%;
+}
+
+.shimmer-line {
+  height: 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e4e4e4 20%,
+    #f0f0f0 40%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-line.short {
+  width: 60%;
+}
+
+/* Button */
+.shimmer-btn {
+  height: 36px;
+  width: 120px;
+  margin-top: 12px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e4e4e4 20%,
+    #f0f0f0 40%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
